@@ -14,7 +14,7 @@ services:
       - registry:/var/lib/registry
     restart: unless-stopped
   frontend:
-    image: joxit/docker-registry-ui:static
+    image: joxit/docker-registry-ui:latest
     environment:
       - REGISTRY_URL=http://registry:5000
       - REGISTRY_TITLE=${DOMAIN}
