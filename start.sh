@@ -12,4 +12,4 @@ fi
 docker run --rm -ti xmartlabs/htpasswd "${USERNAME}" "${PASSWORD}" > htpasswd
 
 # Start the containers
-docker-compose up -d
+docker compose up -d
