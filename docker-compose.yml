@@ -1,4 +1,4 @@
-version: '3.5'
+version: "3"
 services:
   registry:
     image: registry:2
@@ -22,8 +22,11 @@ services:
     networks:
       - traefik
     labels:
-      traefik.enable: true
-      traefik.frontend.rule: "Host:${DOMAIN}"
+      - "traefik.docker.network=${TRAEFIK_NETWORK}"
+      - "traefik.http.routers.registry.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.registry.entrypoints=websecure"
+      - "traefik.http.routers.registry.tls=true"
+      - "traefik.http.routers.registry.tls.certresolver=le"
     restart: unless-stopped
 volumes:
   registry:
