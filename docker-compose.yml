@@ -16,7 +16,7 @@ services:
   frontend:
     image: joxit/docker-registry-ui:latest
     environment:
-      - REGISTRY_URL=http://registry:5000
+      - NGINX_PROXY_PASS_URL=http://registry:5000
       - REGISTRY_TITLE=${DOMAIN}
       - DELETE_IMAGES=true
     networks:
